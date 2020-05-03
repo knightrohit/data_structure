@@ -31,7 +31,7 @@ class Solution:
         out, stack = [], []
         
         if not root:
-            return self.out
+            return out
          
         node = root
         
