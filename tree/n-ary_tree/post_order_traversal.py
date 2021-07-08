@@ -23,3 +23,22 @@ class Solution:
                 
         po(root)
         return self.out
+
+
+# Iteration
+class Solution:
+    def postorder(self, root: 'Node') -> List[int]:
+        
+        if not root:
+            return []
+        
+        self.out, self.stack = [], [root]
+        
+        while self.stack:
+            node = self.stack.pop()
+            if node:
+                self.out.append(node.val)
+            if node.children:
+                self.stack.extend(node.children)
+                
+        return self.out[::-1]
