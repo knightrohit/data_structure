@@ -22,3 +22,23 @@ class Solution:
                 
         po(root)
         return self.out
+
+
+# Iterative
+class Solution:
+    def preorder(self, root: 'Node') -> List[int]:
+        
+        self.out, self.stack = [], []
+
+        if not root:
+            return self.out
+        
+        self.stack.append(root)
+        
+        while self.stack:
+            node = self.stack.pop()
+            self.out.append(node.val)
+            if node.children:
+                self.stack.extend(node.children[::-1])
+                
+        return self.out
